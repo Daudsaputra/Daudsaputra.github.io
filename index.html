@@ -165,21 +165,28 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-6">
-            <form>
+            <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+              <strong>Thankyou!</strong>Your message has been sent.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <form name="daud-contact-form">
               <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" />
+                <input type="text" class="form-control" id="name" aria-describedby="name" name="name" />
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="email" />
+                <input type="email" class="form-control" id="email" aria-describedby="email" name="email" />
               </div>
               <div class="mb-3">
                 <label for="pesan" class="form-label">Message</label>
-                <textarea class="form-control" id="pesan" rows="3"></textarea>
+                <textarea class="form-control" id="pesan" rows="3" name="message"></textarea>
               </div>
 
-              <button type="submit" class="btn btn-dark">Send</button>
+              <button type="submit" class="btn btn-dark btn-send">Send</button><button class="btn btn-dark btn-loading d-none" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+              </button>
             </form>
           </div>
         </div>
@@ -189,9 +196,39 @@
     <!-- akhir contact -->
 
     <!-- footer  -->
-    <footer class="bg-dark text-center text-light p-5">
+    <footer class="bg-dark text-center text-light pb-5">
       <p>created with <i class="bi bi-chat-heart-fill"></i> by <a href="https://www.linkedin.com/in/daud-saputra-803078214/" class="text-light fw-bold"> Daud saputra</a></p>
     </footer>
     <!-- akhir footer -->
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwno26qAzy9VzvQjqyBA8ttDdDqVC_K2RIeVH35A2sNH1pmoBLc55ocYnttzIpY25hk8Q/exec'
+      const form = document.forms['daud-contact-form']
+      const btnSend = document.querySelector('.btn-send');
+      const btnLoading = document.querySelector('.btn-loading');
+      const myAlert = document.querySelector('.my-alert');
+
+
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        // when submit button on click
+        // show the loading button, remove the submit button
+        btnLoading.classList.toggle('d-none');
+        btnSend.classList.toggle('d-none');
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            // show submit button, remove loading button
+            btnLoading.classList.toggle('d-none');
+            btnSend.classList.toggle('d-none');
+            // show alert
+            myAlert.classList.toggle('d-none');
+            // reset form
+            form.reset();
+            console.log('Success!', response)
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
   </body>
 </html>
