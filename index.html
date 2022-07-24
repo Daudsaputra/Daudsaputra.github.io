@@ -16,8 +16,10 @@
   </body>
 </html>
 
+<!-- Aos -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <!-- my css  -->
+<!-- my css  -->
     <link rel="stylesheet" href="style.css" />
 
     <title>My potofolio | Daud saputra</title>
@@ -52,7 +54,7 @@
 
     <!-- jumbotron -->
     <section class="jumbotron text-center">
-      <img src="img/dauds.jpg" alt="Daud saputra" width="200" class="rounded-circle img-thumbnail bg-dark" />
+      <img src= "img/dauds.jpg" alt="Daud saputra" width="200" class="rounded-circle img-thumbnail bg-dark"  />
       <h1 class="display-4 fw-bold">Daud saputra</h1>
       <p class="lead">Freelancer | Rebahaners | Nakama</p>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -74,7 +76,7 @@
           </div>
         </div>
         <div class="row justify-content-center fs-4 text-center">
-          <div class="col-md-10">
+          <div class="col-md-10"data-aos="fade-down" data-aos-duration="2000">
             <p>Hello everyone.
               My name is Daud Saputra, but you can call me Daud. I am 26 years old and live in the eastern part of Jakarta. My hobbies are listening to music, Watching short Family Guy videos on youtube, Watching random people's reels on instagram, Sometimes I also like live streaming games on Facebook, Looking for the latest news on Twitter and loving anime especially onepice, But now I'm also learning a little how to code on youtube WPU, though I've only just been able to make this web portfolio, But thank you, Mr. Sandikha Galih. Anyway, sometimes I also like to think about great things when I'm defecating. Why is that? lol. And seriously, Right now I'm looking for a permanent job that suits my abilities, Not my hobby. By the way, you can check my abilities at the bottom of this website at "Daud Saputra". All you have to do is click on it. Maybe this is all about me,
               Thankyou.</p>
@@ -103,7 +105,9 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-4 mb-3">
-            <div class="card">
+            <div class="card" data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine" data-aos-duration="1000">
               <img src="img/projects/1.gif" class="card-img-top" alt="projects 1" />
               <div class="card-body">
                 <p class="card-text fst-italic">Yoshiko from anime aho girl, she is a complete idiot that is addicted to bananas, to put it simply. She is an eccentric person who is also very annoying towards Akuru Akutsu, even though she truly wants him to love her. Yoshiko even goes so far as to let him see her panties.</p>
@@ -111,7 +115,10 @@
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="card">
+            <div class="card" data-aos="fade-down"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="1000">
               <img src="img/projects/2.gif" class="card-img-top" alt="projects 2" />
               <div class="card-body">
                 <p class="card-text fst-italic">Mikoto Urabe is an unusual girl who prefers to express feelings through her drool (through a special bond she shares with certain people) rather than through words or physical contact. She's good at cutting things up with her "Panty Scissors" (scissors she keeps strapped to her hip, usually via her panties), sleeping in class, and enjoys spending time with her boyfriend Tsubaki and friend Oka.</p>
@@ -119,7 +126,9 @@
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="card">
+            <div class="card" data-aos="fade-left"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine" data-aos-duration="1000">
               <img src="img/projects/3.gif" class="card-img-top" alt="projects 3" />
               <div class="card-body">
                 <p class="card-text fst-italic">Annie Leonhart (アニ・レオンハート Ani Reonhāto?) is a graduate of the 104th Training Corps and former member of the Military Police Brigade. Her exceptional skills with swords and unarmed combat earned her the 4th rank, but she is also noted to be a lone wolf who struggles to work with others.</p>
@@ -127,7 +136,10 @@
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="card">
+            <div class="card"  data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="1000">
               <img src="img/projects/4.gif" class="card-img-top" alt="projects 4" />
               <div class="card-body">
                 <p class="card-text fst-italic">Captain Tashigi is a Marine officer serving under Vice Admiral Smoker in the base of G-5
@@ -136,7 +148,10 @@
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="card">
+            <div class="card"  data-aos="fade-left"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="1000">
               <img src="img/projects/5.gif" class="card-img-top" alt="projects 5" />
               <div class="card-body">
                 <p class="card-text fst-italic">Senju is a principled leader with a good moral compass. She commands Brahman through its losses and triumphs and aspires to preserve the gang as it is, veering it away from corruption and immorality despite being one of the most infamous bands of delinquents in Tokyo.</p>
@@ -201,14 +216,19 @@
     </footer>
     <!-- akhir footer -->
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        oonce: false,
+      });
+    </script>
+
     <script>
       const scriptURL = 'https://script.google.com/macros/s/AKfycbwno26qAzy9VzvQjqyBA8ttDdDqVC_K2RIeVH35A2sNH1pmoBLc55ocYnttzIpY25hk8Q/exec'
       const form = document.forms['daud-contact-form']
       const btnSend = document.querySelector('.btn-send');
       const btnLoading = document.querySelector('.btn-loading');
       const myAlert = document.querySelector('.my-alert');
-
-
     
       form.addEventListener('submit', e => {
         e.preventDefault()
